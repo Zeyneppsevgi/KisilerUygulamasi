@@ -7,30 +7,49 @@
 
 import Foundation
 import RxSwift
+import CoreData
 
 class KisilerDaoRepository {
-    var kisilerListesi = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var kisilerListesi = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
+    
+    let context = appDelegate.persistentContainer.viewContext
+    
     func kaydet(kisi_ad:String, kisi_tel:String){
-        print("Kişi kaydet: \(kisi_ad) - \(kisi_tel)")
+        let kisi = KisilerModel(context: context)
+        kisi.kisi_ad = kisi_ad
+        kisi.kisi_tel = kisi_tel
+        
+        appDelegate.saveContext()
     }
-    func guncelle(kisi_id:Int, kisi_ad:String, kisi_tel:String){
-        print("Kişi güncelle: \(kisi_id) - \(kisi_ad) - \(kisi_tel)")
-    }
-    func sil(kisi_id: Int) {
-        print("Kişi Sil: \(kisi_id)")
+    func guncelle(kisi:KisilerModel, kisi_ad:String, kisi_tel:String){
+        kisi.kisi_ad = kisi_ad
+        kisi.kisi_tel = kisi_tel
+        
+        appDelegate.saveContext()
+        
+            }
+    func sil(kisi:KisilerModel) {
+        context.delete(kisi)
+        appDelegate.saveContext()
         kisileriYukle()
     }
     func ara(aramaKelimesi:String) {
-        print("Arandı: \(aramaKelimesi)")
+        do {
+            let fr = KisilerModel.fetchRequest()
+            fr.predicate = NSPredicate(format: "kisi_ad CONTAINS[c] %@", aramaKelimesi) //büyük küçük harf farketmemesi içi n c
+            let liste = try context.fetch(fr)
+            kisilerListesi.onNext(liste) //tetikleme
+        }catch {
+            print(error.localizedDescription)
+        }
     }
     func kisileriYukle() {
-        var liste = [Kisiler]()
-        let k1 = Kisiler(kisi_id: 1, kisi_ad: "Zeynep", kisi_tel: "11111")
-        let k2 = Kisiler(kisi_id: 2, kisi_ad: "Ahmet", kisi_tel: "22222")
-        let k3 = Kisiler(kisi_id: 3, kisi_ad: "Ali", kisi_tel: "33333")
-        liste.append(k1)
-        liste.append(k2)
-        liste.append(k3)
-        kisilerListesi.onNext(liste) //tetikleme
+        do {
+            let liste = try context.fetch(KisilerModel.fetchRequest())
+            kisilerListesi.onNext(liste) //tetikleme
+        }catch {
+            print(error.localizedDescription)
+        }
+       
     }
 }

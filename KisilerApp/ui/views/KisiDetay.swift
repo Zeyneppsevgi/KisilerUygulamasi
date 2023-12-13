@@ -12,7 +12,8 @@ class KisiDetay: UIViewController {
     @IBOutlet weak var tfKisi_tel: UITextField!
     @IBOutlet weak var tfKisi_ad: UITextField!
     //veri aktarımı
-    var kisi:Kisiler?
+    var kisi:KisilerModel?
+    
     var viewModel = KisiDetayViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class KisiDetay: UIViewController {
     
     @IBAction func buttonGuncelle(_ sender: Any) {
         if let ka = tfKisi_ad.text, let kt = tfKisi_tel.text, let k = kisi { //k aslında id 14.satırdaki id değişmez
-            viewModel.guncelle(kisi_id: k.kisi_id!, kisi_ad: ka , kisi_tel: kt)
+            viewModel.guncelle(kisi: k, kisi_ad: ka , kisi_tel: kt)
         }
 
     }
