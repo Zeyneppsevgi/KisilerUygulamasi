@@ -5,39 +5,17 @@
 //  Created by Zeynep Sevgi on 25.10.2023.
 //
 
-
 import UIKit
-import CoreData
-
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
-        container.loadPersistentStores(completionHandler: { (storeDescription,error) in
-            if let e = error {
-                print("Hata : \((e as NSError).userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    func saveContext(){ //kaydı onaylama
-        let context = persistentContainer.viewContext //veritabana erişmek için onay alıyor
-        if context.hasChanges {
-            do{
-                try context.save()
-            }catch{
-                print("Hata  : \((error as NSError).userInfo)")
-            }
-        }
-    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

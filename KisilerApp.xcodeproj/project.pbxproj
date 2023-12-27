@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70172CCC2B3AC452002BB45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70172CCB2B3AC452002BB45E /* GoogleService-Info.plist */; };
+		70172CCF2B3AC50B002BB45E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 70172CCE2B3AC50B002BB45E /* FirebaseFirestore */; };
 		70576EE92AE909380074B389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576EE82AE909380074B389 /* AppDelegate.swift */; };
 		70576EEB2AE909380074B389 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576EEA2AE909380074B389 /* SceneDelegate.swift */; };
 		70576EED2AE909380074B389 /* Anasayfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576EEC2AE909380074B389 /* Anasayfa.swift */; };
@@ -17,7 +19,6 @@
 		70576F032AE90A1C0074B389 /* KisiDetay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576F022AE90A1C0074B389 /* KisiDetay.swift */; };
 		70576F052AE90BBA0074B389 /* Kisiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576F042AE90BBA0074B389 /* Kisiler.swift */; };
 		70576F082AE926570074B389 /* KisilerHucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70576F072AE926570074B389 /* KisilerHucre.swift */; };
-		709F5B8F2B15F00F005DB7A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 709F5B8D2B15F00F005DB7A1 /* Model.xcdatamodeld */; };
 		70A5D4FA2AEFBC2A00B8A852 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 70A5D4F92AEFBC2A00B8A852 /* RxSwift */; };
 		70A5D4FD2AEFBD3B00B8A852 /* KisilerDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A5D4FC2AEFBD3B00B8A852 /* KisilerDaoRepository.swift */; };
 		70A5D5012AEFBDA500B8A852 /* AnasayfaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A5D5002AEFBDA500B8A852 /* AnasayfaViewModel.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70172CCB2B3AC452002BB45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70576EE52AE909380074B389 /* KisilerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KisilerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70576EE82AE909380074B389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70576EEA2AE909380074B389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +40,6 @@
 		70576F022AE90A1C0074B389 /* KisiDetay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisiDetay.swift; sourceTree = "<group>"; };
 		70576F042AE90BBA0074B389 /* Kisiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kisiler.swift; sourceTree = "<group>"; };
 		70576F072AE926570074B389 /* KisilerHucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisilerHucre.swift; sourceTree = "<group>"; };
-		709F5B8E2B15F00F005DB7A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		70A5D4FC2AEFBD3B00B8A852 /* KisilerDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisilerDaoRepository.swift; sourceTree = "<group>"; };
 		70A5D5002AEFBDA500B8A852 /* AnasayfaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnasayfaViewModel.swift; sourceTree = "<group>"; };
 		70A5D5022AEFBDEC00B8A852 /* KisiKayitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisiKayitViewModel.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70A5D4FA2AEFBC2A00B8A852 /* RxSwift in Frameworks */,
+				70172CCF2B3AC50B002BB45E /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +86,7 @@
 				70576EF12AE909390074B389 /* Assets.xcassets */,
 				70576EF32AE909390074B389 /* LaunchScreen.storyboard */,
 				70576EF62AE909390074B389 /* Info.plist */,
-				709F5B8D2B15F00F005DB7A1 /* Model.xcdatamodeld */,
+				70172CCB2B3AC452002BB45E /* GoogleService-Info.plist */,
 			);
 			path = KisilerApp;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 			name = KisilerApp;
 			packageProductDependencies = (
 				70A5D4F92AEFBC2A00B8A852 /* RxSwift */,
+				70172CCE2B3AC50B002BB45E /* FirebaseFirestore */,
 			);
 			productName = KisilerApp;
 			productReference = 70576EE52AE909380074B389 /* KisilerApp.app */;
@@ -201,6 +204,7 @@
 			mainGroup = 70576EDC2AE909370074B389;
 			packageReferences = (
 				70A5D4F82AEFBC2A00B8A852 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				70172CCD2B3AC50B002BB45E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 70576EE62AE909380074B389 /* Products */;
 			projectDirPath = "";
@@ -217,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70576EF52AE909390074B389 /* LaunchScreen.storyboard in Resources */,
+				70172CCC2B3AC452002BB45E /* GoogleService-Info.plist in Resources */,
 				70576EF22AE909390074B389 /* Assets.xcassets in Resources */,
 				70576EF02AE909380074B389 /* Main.storyboard in Resources */,
 			);
@@ -240,7 +245,6 @@
 				70576EEB2AE909380074B389 /* SceneDelegate.swift in Sources */,
 				70576F052AE90BBA0074B389 /* Kisiler.swift in Sources */,
 				70A5D5032AEFBDEC00B8A852 /* KisiKayitViewModel.swift in Sources */,
-				709F5B8F2B15F00F005DB7A1 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +464,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		70172CCD2B3AC50B002BB45E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		70A5D4F82AEFBC2A00B8A852 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -471,25 +483,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		70172CCE2B3AC50B002BB45E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70172CCD2B3AC50B002BB45E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		70A5D4F92AEFBC2A00B8A852 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 70A5D4F82AEFBC2A00B8A852 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		709F5B8D2B15F00F005DB7A1 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				709F5B8E2B15F00F005DB7A1 /* Model.xcdatamodel */,
-			);
-			currentVersion = 709F5B8E2B15F00F005DB7A1 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 70576EDD2AE909370074B389 /* Project object */;
 }

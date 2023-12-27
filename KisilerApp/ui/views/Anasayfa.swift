@@ -12,7 +12,7 @@ class Anasayfa: UIViewController{
     @IBOutlet weak var kisilerTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var kisilerListesi = [KisilerModel]()
+    var kisilerListesi = [Kisiler]()
     var viewModel = AnasayfaViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +22,18 @@ class Anasayfa: UIViewController{
      
         _ = viewModel.kisilerListesi.subscribe(onNext: { liste in
             self.kisilerListesi = liste
-            self.kisilerTableView.reloadData()
+            DispatchQueue.main.async { //asenkron bir şekeilde verileri aktarmayı sağlıyor. daha performanslı çalışıyor.
+                self.kisilerTableView.reloadData()
+            }
+            
         })
         
     }
-    //yaşam döngüsü sayfaya geri dönüldüğünü anlamak için
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel.kisileriYukle()
-    }
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetay" {
-            if let kisi = sender as? KisilerModel{
+            if let kisi = sender as? Kisiler {
                 let gidilecekVC = segue.destination as! KisiDetay
                 gidilecekVC.kisi = kisi
             }
@@ -44,12 +44,11 @@ class Anasayfa: UIViewController{
 }
 extension Anasayfa: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
+        if searchText == "" { //boşsa tüm veriler gelsin hiçbir şey yazılmadığında 
             viewModel.kisileriYukle()
-        } else {
+        }else {
             viewModel.ara(aramaKelimesi: searchText)
         }
-       
     }
 }
 extension Anasayfa: UITableViewDelegate, UITableViewDataSource {
@@ -67,6 +66,7 @@ extension Anasayfa: UITableViewDelegate, UITableViewDataSource {
         //tek tek labelları alıp yazdırıcak tableviewe
         return hucre
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let kisi = kisilerListesi[indexPath.row]
         performSegue(withIdentifier: "toDetay", sender: kisi)
@@ -81,7 +81,7 @@ extension Anasayfa: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(iptalAction)
             
             let evetAction = UIAlertAction(title: "evet", style: .destructive){ action in
-                    self.viewModel.sil(kisi: kisi)
+                    self.viewModel.sil(kisi_id: kisi.kisi_id!)
             }
             alert.addAction(evetAction)
             self.present(alert, animated: true)
